@@ -15,6 +15,5 @@ Este proyecto está bajo la organización [Kodigo.org](https://www.kodigo.org).
 
 ## Contribuciones
 Las contribuciones son bienvenidas. Si deseas agregar tus prácticas, asegúrate de seguir las pautas y mantener la estructura del repositorio.
+ - [Pautas de repositorio](Pautas.md)
 
-## Contacto
-Para cualquier ⬤
