@@ -1,4 +1,4 @@
-package ejercicio1;
+package Ejercicio1;
 
 public class PracticasMetodos {
 
@@ -14,7 +14,7 @@ public class PracticasMetodos {
      * @return true si todas las validaciones son exitosas, false en caso contrario.
      */
     public boolean validarUsuario(String nombre, int edad, String email) {
-        // Múltiples validaciones en un solo método
+        // Múltiples validaciones en un solo metodo.
         if (nombre == null || nombre.length() < 2) {
             System.out.println("Nombre inválido");
             return false;
