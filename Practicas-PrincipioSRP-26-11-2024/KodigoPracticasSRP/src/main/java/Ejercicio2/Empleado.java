@@ -59,43 +59,4 @@ public class Empleado {
     public void setSalario(double salario) {
         this.salario = salario;
     }
-
-    /**
-     * Genera un reporte de todos los empleados, mostrando su nombre y salario.
-     */
-    public static void generarReporte() {
-        System.out.println("--- REPORTE DE EMPLEADOS ---");
-        for (Empleado empleado : empleados) {
-            System.out.println("Nombre: " + empleado.getNombre() +
-                    " - Salario: $" + empleado.getSalario());
-        }
-    }
-
-    /**
-     * Calcula el salario total de todos los empleados en la lista.
-     *
-     * @return El salario total de todos los empleados.
-     */
-    public static double calcularSalarioTotal() {
-        double total = 0;
-        for (Empleado empleado : empleados) {
-            total += empleado.getSalario();
-        }
-        return total;
-    }
-
-    /**
-     * Metodo principal que crea instancias de empleados y genera un reporte.
-     *
-     * @param args Argumentos de línea de comandos (no utilizados).
-     */
-    public static void main(String[] args) {
-        // Crear empleados
-        new Empleado("Juan Pérez", 50000);
-        new Empleado("Ana Gómez", 60000);
-
-        // Generar reporte y calcular salario total
-        generarReporte();
-        System.out.println("Salario total: $" + calcularSalarioTotal());
-    }
 }

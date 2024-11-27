@@ -15,21 +15,33 @@ public class PracticasMetodos {
      */
     public boolean validarUsuario(String nombre, int edad, String email) {
         // Múltiples validaciones en un solo metodo.
+        ValidarNombre(nombre);
+        validarEdad(edad);
+        validadEmail(email);
+        return true;
+    }
+
+    private boolean ValidarNombre(String nombre){
         if (nombre == null || nombre.length() < 2) {
             System.out.println("Nombre inválido");
             return false;
         }
+        return true;
+    }
 
+    private boolean validarEdad(int edad) {
         if (edad < 18 || edad > 120) {
             System.out.println("Edad fuera de rango");
             return false;
         }
+        return true;
+    }
 
+    private boolean validadEmail(String email) {
         if (!email.contains("@") || !email.contains(".")) {
             System.out.println("Email inválido");
             return false;
         }
-
         return true;
     }
 
@@ -41,18 +53,27 @@ public class PracticasMetodos {
      * @return El texto procesado, limpio de espacios y caracteres especiales, y en mayúsculas.
      */
     public String procesarTexto(String texto) {
-        // Múltiples responsabilidades en un método
+        // Múltiples responsabilidades en un metodo
         // 1. Eliminar espacios
-        texto = texto.trim();
+        verificarEspaciosNulos(texto);
 
         // 2. Convertir a mayúsculas
-        texto = texto.toUpperCase();
+        convertirAMayusculas(texto);
 
         // 3. Eliminar caracteres especiales
-        texto = texto.replaceAll("[^a-zA-Z0-9]", "");
+        eliminarCaracteresEspeciales(texto);
 
         return texto;
     }
+
+    private void verificarEspaciosNulos(String texto){ texto = texto.trim(); }
+
+    private void convertirAMayusculas(String texto){ texto = texto.toUpperCase(); }
+
+    private void eliminarCaracteresEspeciales(String texto){
+        texto = texto.replaceAll("[^a-zA-Z0-9]", "");
+    }
+
 
     /**
      * Formatea la información a un formato CSV.
@@ -65,13 +86,14 @@ public class PracticasMetodos {
      */
     public String formatearInformacion(String datos) {
         // 1. Eliminar espacios en blanco
-        datos = datos.trim();
+        datos = eliminarEspacios(datos);
 
         // 2. Convertir a mayúsculas
-        datos = datos.toUpperCase();
+        datos = convertirAMayusculas2(datos);
 
         // 3. Crear formato CSV
-        String[] partes = datos.split(",");
+        String[] partes = dividirporcomas(datos);
+
         StringBuilder csvFormateado = new StringBuilder();
         for (String parte : partes) {
             csvFormateado.append("\"").append(parte.trim()).append("\",");
@@ -79,5 +101,10 @@ public class PracticasMetodos {
 
         return csvFormateado.toString().replaceAll(",$", "");
     }
+
+    private String eliminarEspacios(String datos){ return datos.trim(); }
+    private String convertirAMayusculas2(String datos){ return datos.toUpperCase(); }
+    private String[] dividirporcomas(String datos){ return  datos.split(","); }
+
 
 }
